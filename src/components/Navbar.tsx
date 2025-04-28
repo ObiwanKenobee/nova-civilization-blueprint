@@ -199,11 +199,11 @@ const Navbar = () => {
                 FAQ
               </Link>
               {isAuthenticated ? (
-                <Button onClick={handleAuthAction} size="sm" className="w-full" onClick={() => setIsMenuOpen(false)}>
+                <Button onClick={() => { handleAuthAction(); setIsMenuOpen(false); }} size="sm" className="w-full">
                   Dashboard
                 </Button>
               ) : (
-                <Button onClick={handleAuthAction} size="sm" className="w-full" onClick={() => setIsMenuOpen(false)}>
+                <Button onClick={() => { handleAuthAction(); setIsMenuOpen(false); }} size="sm" className="w-full">
                   Sign In
                 </Button>
               )}
