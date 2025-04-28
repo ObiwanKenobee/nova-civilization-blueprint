@@ -1,8 +1,15 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from './Button';
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
+  const handleJoinClick = () => {
+    navigate('/auth');
+  };
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 py-20">
       {/* Cosmic Background */}
@@ -25,10 +32,16 @@ const HeroSection = () => {
           A unified planetary future built on justice, innovation, wisdom, and divine love.
         </h2>
         
-        <Button size="lg" className="group">
-          <span>Join the Movement</span>
-          <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">➔</span>
-        </Button>
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <Button size="lg" className="group" onClick={handleJoinClick}>
+            <span>Join the Movement</span>
+            <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">➔</span>
+          </Button>
+          
+          <Button size="lg" variant="secondary" onClick={() => navigate('/auth')}>
+            <span>Sign In</span>
+          </Button>
+        </div>
       </div>
       
       {/* Scroll indicator */}

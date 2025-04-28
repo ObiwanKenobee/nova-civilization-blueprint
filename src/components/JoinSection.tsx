@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from './Button';
 import { cn } from '@/lib/utils';
 
@@ -7,15 +8,13 @@ const JoinSection = () => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real application, you would send this data to your backend
-    console.log('Form submitted:', { name, email });
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
-    setName('');
-    setEmail('');
+    // Save email and name to localStorage for pre-filling the auth form
+    localStorage.setItem('preAuthData', JSON.stringify({ name, email }));
+    navigate('/auth');
   };
 
   return (
@@ -58,13 +57,6 @@ const JoinSection = () => {
             Become a Founder
             <span className="ml-2">➔</span>
           </Button>
-          
-          <div className={cn(
-            "mt-4 text-green-600 transition-opacity duration-300",
-            submitted ? "opacity-100" : "opacity-0"
-          )}>
-            Thank you for joining! We'll be in touch soon.
-          </div>
         </form>
       </div>
     </section>
