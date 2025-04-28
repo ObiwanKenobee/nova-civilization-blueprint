@@ -11,6 +11,12 @@ import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import { AuthProvider } from "./contexts/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Manifesto from "./pages/Manifesto";
+import ActionPlan from "./pages/ActionPlan";
+import Resources from "./pages/Resources";
+import Blog from "./pages/Blog";
+import Ambassador from "./pages/Ambassador";
+import FAQ from "./pages/FAQ";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +31,12 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
+            <Route path="/manifesto" element={<Manifesto />} />
+            <Route path="/action-plan" element={<ActionPlan />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/ambassador" element={<Ambassador />} />
+            <Route path="/faq" element={<FAQ />} />
             <Route 
               path="/dashboard" 
               element={
